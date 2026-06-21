@@ -1,0 +1,616 @@
+:root {
+	--bg: #080b14;
+	--bg-soft: #111726;
+	--card: #151d30;
+	--text: #f3f5fa;
+	--muted: #b5bfd8;
+	--accent: #ff3b3b;
+	--accent-2: #2da8ff;
+	--line: #28344f;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Manrope", sans-serif;
+	color: var(--text);
+	background:
+		radial-gradient(circle at 85% 15%, #1b3359 0%, transparent 35%),
+		radial-gradient(circle at 10% 80%, #4d1329 0%, transparent 40%),
+		var(--bg);
+}
+
+a {
+	color: inherit;
+}
+
+.topbar {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	padding: 16px 5vw;
+	background: rgba(8, 11, 20, 0.85);
+	backdrop-filter: blur(8px);
+	border-bottom: 1px solid var(--line);
+}
+
+.logo {
+	font-family: "Bebas Neue", sans-serif;
+	letter-spacing: 1.5px;
+	font-size: 2rem;
+	text-decoration: none;
+	color: var(--accent);
+}
+
+.nav {
+	display: flex;
+	gap: 18px;
+	flex-wrap: wrap;
+}
+
+.nav a {
+	text-decoration: none;
+	color: var(--muted);
+	font-weight: 700;
+}
+
+.nav a:hover {
+	color: var(--text);
+}
+
+main {
+	width: min(1100px, 92vw);
+	margin: 0 auto;
+}
+
+.main-hero {
+	padding: 90px 0 60px;
+}
+
+.kicker {
+	color: var(--accent-2);
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	font-weight: 800;
+}
+
+.main-hero h1 {
+	margin: 0;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: clamp(2.4rem, 7vw, 5.3rem);
+	line-height: 0.95;
+	max-width: 780px;
+}
+
+.lead {
+	color: var(--muted);
+	max-width: 680px;
+	font-size: 1.1rem;
+}
+
+.button {
+	display: inline-block;
+	margin-top: 12px;
+	text-decoration: none;
+	background: linear-gradient(100deg, var(--accent), #ff7f30);
+	color: #fff;
+	padding: 12px 18px;
+	border-radius: 10px;
+	font-weight: 800;
+}
+
+.section {
+	padding: 20px 0 34px;
+}
+
+.section h2 {
+	margin: 0 0 18px;
+	font-size: 1.9rem;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 14px;
+}
+
+.card {
+	background: linear-gradient(180deg, var(--card), var(--bg-soft));
+	border: 1px solid var(--line);
+	border-radius: 14px;
+	padding: 16px;
+	overflow: hidden;
+}
+
+.card-image {
+	width: 100%;
+	height: 200px;
+	margin: -16px -16px 12px -16px;
+	border-radius: 12px 12px 0 0;
+}
+
+.card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card h3 {
+	margin: 0 0 8px;
+}
+
+.card p {
+	color: var(--muted);
+}
+
+.card a {
+	color: var(--accent-2);
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.teams .team-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 14px;
+}
+
+.team {
+	border-radius: 16px;
+	padding: 18px;
+	border: 1px solid var(--line);
+	min-height: 170px;
+}
+
+.team h3 {
+	margin-top: 0;
+	font-size: 1.6rem;
+}
+
+.team p {
+	color: #f0f3ff;
+}
+
+.team-avengers {
+	background: linear-gradient(160deg, #6f1018, #26123a);
+}
+
+.team-xmen {
+	background: linear-gradient(160deg, #1b3b71, #14233c);
+}
+
+.team-guardians {
+	background: linear-gradient(160deg, #4f2330, #21143f);
+}
+
+.timeline ul {
+	margin: 0;
+	padding-left: 20px;
+	color: var(--muted);
+}
+
+.timeline li {
+	margin-bottom: 8px;
+}
+
+.timeline-items {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 16px;
+	margin-top: 20px;
+}
+
+.timeline-item {
+	background: linear-gradient(135deg, #1a2840 0%, #0f1820 100%);
+	backdrop-filter: blur(10px);
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	padding: 20px;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.timeline-item::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent), var(--accent-2));
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.timeline-item:hover {
+	transform: translateY(-8px);
+	border-color: var(--accent-2);
+	box-shadow: 0 12px 30px rgba(45, 168, 255, 0.2);
+}
+
+.timeline-item:hover::before {
+	opacity: 1;
+}
+
+.timeline-year {
+	font-size: 2.2rem;
+	font-weight: 800;
+	font-family: "Bebas Neue", sans-serif;
+	color: var(--accent-2);
+	letter-spacing: 1px;
+	margin-bottom: 12px;
+}
+
+.timeline-content {
+	color: var(--muted);
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.footer {
+	width: min(1100px, 92vw);
+	margin: 12px auto 36px;
+	color: var(--muted);
+}
+
+.hero-page {
+	padding-top: 32px;
+}
+
+.hero-page-banner {
+	border-radius: 16px;
+	padding: 32px 24px;
+	border: 1px solid var(--line);
+	display: flex;
+	gap: 30px;
+	align-items: center;
+}
+
+.hero-page-banner .hero-image {
+	flex-shrink: 0;
+	width: 180px;
+	height: 240px;
+}
+
+.hero-page-banner .hero-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 12px;
+}
+
+.hero-page-banner .hero-info {
+	flex: 1;
+}
+
+.hero-page-banner h1 {
+	margin: 0 0 8px;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: clamp(2rem, 8vw, 4rem);
+	letter-spacing: 1px;
+}
+
+.hero-page-banner p {
+	margin: 0;
+	color: #edf1ff;
+}
+
+.hero-page-content {
+	margin: 20px 0 40px;
+	padding: 20px;
+	border-radius: 16px;
+	background: linear-gradient(180deg, var(--card), var(--bg-soft));
+	border: 1px solid var(--line);
+}
+
+.heroes-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 20px;
+	margin-bottom: 20px;
+	justify-items: center;
+	align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+	.heroes-grid {
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	}
+}
+
+@media (max-width: 768px) {
+	.heroes-grid {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 16px;
+	}
+}
+
+.hero-mini {
+	background: linear-gradient(180deg, rgba(21, 29, 48, 0.8), rgba(17, 23, 38, 0.8));
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	padding: 16px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	width: 100%;
+	max-width: 320px;
+	display: flex;
+	flex-direction: column;
+}
+
+.hero-mini:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 20px rgba(255, 59, 59, 0.2);
+}
+
+.hero-mini-image {
+	width: 100%;
+	height: 200px;
+	margin-bottom: 12px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.hero-mini-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.hero-mini img {
+	max-width: 100%;
+	max-height: 280px;
+	width: auto;
+	height: auto;
+	object-fit: cover;
+	display: block;
+	margin-bottom: 12px;
+	border-radius: 10px;
+}
+
+.hero-mini h3 {
+	margin: 12px 0 8px;
+	font-size: 1.2rem;
+	color: var(--text);
+}
+
+.hero-mini p {
+	color: var(--muted);
+	font-size: 0.95rem;
+	margin-bottom: 12px;
+	line-height: 1.4;
+	flex-grow: 1;
+}
+
+.hero-mini .button {
+	display: block;
+	text-align: center;
+	margin-top: auto;
+	width: 100%;
+}
+
+.teams-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 28px;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+	.teams-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+	}
+}
+
+@media (max-width: 768px) {
+	.teams-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}
+
+.team-card {
+	border-radius: 14px;
+	padding: 28px;
+	border: 1px solid var(--line);
+	min-height: 380px;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card-image {
+	width: calc(100% + 56px);
+	height: 240px;
+	margin: -28px -28px 20px -28px;
+	border-radius: 14px 14px 0 0;
+	overflow: hidden;
+}
+
+.team-card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.team-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 24px rgba(45, 168, 255, 0.15);
+}
+
+.team-card h3 {
+	margin-top: 0;
+	font-size: 1.8rem;
+	font-family: "Bebas Neue", sans-serif;
+	letter-spacing: 1px;
+	margin-bottom: 14px;
+}
+
+.team-card p {
+	color: #f0f3ff;
+	margin-bottom: 16px;
+	flex-grow: 1;
+	line-height: 1.6;
+	font-size: 0.95rem;
+}
+
+.team-details {
+	color: var(--muted);
+	font-size: 0.9rem;
+	line-height: 1.6;
+	border-top: 1px solid var(--line);
+	padding-top: 12px;
+	margin-top: auto;
+}
+
+.team-details strong {
+	color: var(--text);
+}
+
+.team-members {
+	background: rgba(0, 0, 0, 0.3);
+	padding: 12px;
+	border-radius: 8px;
+	margin: 12px 0;
+	font-size: 0.9rem;
+}
+
+.team-members ul {
+	margin: 8px 0 0;
+	padding-left: 20px;
+}
+
+.team-members li {
+	margin-bottom: 4px;
+	color: var(--muted);
+}
+
+.team-info-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
+	margin: 20px 0;
+}
+
+.team-info-block {
+	background: linear-gradient(135deg, rgba(45, 168, 255, 0.1), rgba(255, 59, 59, 0.1));
+	padding: 16px;
+	border-radius: 8px;
+	border: 1px solid var(--line);
+}
+
+.team-info-block strong {
+	color: var(--accent-2);
+	display: block;
+	margin-bottom: 8px;
+}
+
+.team-info-block p {
+	margin: 0;
+	color: var(--text);
+}
+
+@media (max-width: 700px) {
+	.team-info-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.team-avengers {
+	background: linear-gradient(160deg, #6f1018, #26123a);
+}
+
+.team-xmen {
+	background: linear-gradient(160deg, #1b3b71, #14233c);
+}
+
+.team-guardians {
+	background: linear-gradient(160deg, #4f2330, #21143f);
+}
+
+.team-fantastic {
+	background: linear-gradient(160deg, #2d4a5a, #1a2935);
+}
+
+.hero-page-content p,
+.hero-page-content li {
+	color: var(--muted);
+}
+
+.generic {
+	background: linear-gradient(150deg, #3c244f, #12253f);
+}
+
+.iron {
+	background: linear-gradient(150deg, #7a1616, #2f1526);
+}
+
+.cap {
+	background: linear-gradient(150deg, #193f7a, #223052);
+}
+
+.thor {
+	background: linear-gradient(150deg, #2a307d, #301e56);
+}
+
+.spider {
+	background: linear-gradient(150deg, #9b2323, #1f2f64);
+}
+
+.hulk {
+	background: linear-gradient(150deg, #1f612d, #123b27);
+}
+
+.ant-man {
+	background: linear-gradient(150deg, #5a5a2d, #3d3d1f);
+}
+
+.captain-marvel {
+	background: linear-gradient(150deg, #2a5a7a, #1f3d52);
+}
+
+.deadpool {
+	background: linear-gradient(150deg, #7a2d2d, #5a1f1f);
+}
+
+@media (max-width: 700px) {
+	.main-hero {
+		padding-top: 60px;
+	}
+
+	.topbar {
+		padding: 14px 4vw;
+	}
+
+	.logo {
+		font-size: 1.6rem;
+	}
+
+	.hero-page-banner {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.hero-page-banner .hero-image {
+		width: 100%;
+		height: 300px;
+		max-width: 240px;
+		align-self: center;
+	}
+
+	.timeline-items {
+		grid-template-columns: 1fr;
+	}
+
+	.timeline-year {
+		font-size: 1.8rem;
+	}
+}
